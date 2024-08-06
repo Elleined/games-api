@@ -1,0 +1,19 @@
+version: "3"
+services:
+  games_api:
+    build: .
+    container_name: games_api
+    image: elleined/games-api
+    restart: always
+    ports:
+      - "8045:8045"
+    networks:
+      - games_network
+    environment:
+      - PORT=8045
+networks:
+  games_network:
+    name: games_network
+    ipam:
+      driver: default
+    external: false
